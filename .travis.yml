@@ -11,8 +11,8 @@ after_script:
     # 部署
     - cd ./public
     - git init
-    - git config user.name "[你的名字]"
-    - git config user.email "[你的邮箱]"
+    - git config user.name "balus"
+    - git config user.email "balus@foxmail.com"
     - git add .
     - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
     # Github Pages
@@ -22,7 +22,7 @@ after_script:
 env:
     global:
         # Github Pages
-        - GH_REF: github.com:BalusChen/BalusChen.github.io.git
+        - GH_REF: github.com/BalusChen/BalusChen.github.io.git
 deploy:
     provider: pages
     skip_cleanup: true
