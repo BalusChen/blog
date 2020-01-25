@@ -2,7 +2,9 @@ sudo: false
 language: go
 git:
     depth: 1
-install: go get -v github.com/gohugoio/hugo
+install:
+    - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb
+    - sudo dpkg -i hugo*.deb
 script:
     ‐ hugo
 deploy:
