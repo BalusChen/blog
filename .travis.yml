@@ -5,7 +5,7 @@ git:
 install:
     - wget https://github.com/gohugoio/hugo/releases/download/v0.51/hugo_0.51_Linux-64bit.deb
     - sudo dpkg -i hugo*.deb
-    - git clone https://github.com/olOwOlo/hugo-theme-even
+    # - git clone https://github.com/olOwOlo/hugo-theme-even
 script:
     - hugo
 after_script:
