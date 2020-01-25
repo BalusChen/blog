@@ -1,0 +1,2 @@
+User-agent: *
+Sitemap: https://baluschen.github.io/sitemap.xml
