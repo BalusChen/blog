@@ -7,15 +7,29 @@ install:
     - sudo dpkg -i hugo*.deb
 script:
     ‐ hugo
+after_script:
+    # 部署
+    - cd ./public
+    - git init
+    - git config user.name "[你的名字]"
+    - git config user.email "[你的邮箱]"
+    - git add .
+    - git commit -m "Update Blog By TravisCI With Build $TRAVIS_BUILD_NUMBER"
+    # Github Pages
+    - git push --force --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master
+    # Github Pages
+    - git push --quiet "https://$GITHUB_TOKEN@${GH_REF}" master:master --tags
+env:
+    global:
+        # Github Pages
+        - GH_REF: github.com:BalusChen/BalusChen.github.io.git
 deploy:
     provider: pages
     skip_cleanup: true
     github_token: $GITHUB_TOKEN
-    on:
-        branch: master
     local_dir: public
     repo: BalusChen/BalusChen.github.io
-    fqdn: <custom-domain-if-needed>
-    target_branch: master
-    email: balus@foxmail.com
-    name: BalusChen
+    # fqdn: <custom-domain-if-needed>
+    keep_history: true
+    on:
+        branch: master
